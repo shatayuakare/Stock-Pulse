@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&family=Radio+Canada:ital,wght@0,300..700;1,300..700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  transition: .5s ease;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: rgb(244 244 245);
+  color: black;
+  font-family: 'Radio Canada', 'Roboto', sans-serif;
+}
+
+section {
+  padding: 1rem;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+
+
+
+
+/* Dashboard styling */
+section#dashboard {
+
+  padding-top: 4rem;
+  height: 90dvh !important;
+}
+
+section#dashboard .menu li {
+  padding: .3rem;
+  font-size: 1.2rem;
+}
+
+
+/* common styling */
+
+.h-vh {
+  min-height: 100vh !important;
+}
