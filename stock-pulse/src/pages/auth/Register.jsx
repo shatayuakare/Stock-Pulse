@@ -38,7 +38,7 @@ const Register = () => {
             name, email, phone, password
         }
 
-        await axios.post("http://localhost:4000/auth/register", registerInfo).then((res) => {
+        await axios.post("https://stock-pulse.onrender.com/auth/register", registerInfo).then((res) => {
             console.log(res)
             localStorage.setItem("user", JSON.stringify(res.data.user))
             toast.success("Account Successfully Registered.")

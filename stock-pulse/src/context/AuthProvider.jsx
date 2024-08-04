@@ -9,7 +9,7 @@ export default function AuthProvider({ children }) {
 
     const initialauthUser = localStorage.getItem("user");
 
-    axios.get("http://localhost:4000/auth").then((res) => {
+    axios.get("https://stock-pulse.onrender.com/auth").then((res) => {
         console.log(res)
     }).catch((err) => console.log(err.response.data.message))
 

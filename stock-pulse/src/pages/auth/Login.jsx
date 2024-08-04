@@ -13,19 +13,7 @@ const Login = () => {
     const [passwordType, setPasswordType] = useState("password")
 
 
-    // const api = axios.create({
-    //     baseURL: 'http://localhost:4000',
-    // });
 
-
-    function getToken() {
-        try {
-            const token = document.cookie.match(/Bearer\s+([a-zA-Z0-9-_]+)/);
-            return token ? token[1] : null;
-        } catch (error) {
-            console.log(error)
-        }
-    }
 
     const login = async (event) => {
         event.preventDefault();
@@ -45,12 +33,9 @@ const Login = () => {
         const loginInfo = {
             email, password
         }
-        await axios.post("http://localhost:4000/auth/login", loginInfo).then((res) => {
+        await axios.post("https://stock-pulse.onrender.com/auth/login", loginInfo).then((res) => {
 
             console.log("Response : ", res.data)
-
-            // const token = getToken()
-            // console.log("Token ", token)
 
             localStorage.setItem("user", JSON.stringify(res.data.user))
             toast.success("Account Successfully Logged In")
