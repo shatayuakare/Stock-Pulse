@@ -16,6 +16,7 @@ import Product from './pages/Product'
 import Supplier from './pages/Supplier'
 import Setting from './pages/dashboard/Setting'
 
+
 const App = () => {
 
   const [authUser, setAuthUser] = useAuth()

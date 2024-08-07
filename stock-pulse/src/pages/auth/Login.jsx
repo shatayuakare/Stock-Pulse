@@ -2,7 +2,9 @@ import React, { useState } from 'react'
 import { Link } from "react-router-dom"
 import { validateEmail } from '../../helper';
 import axios from 'axios';
-import toast from 'react-hot-toast';
+import { toast } from 'react-toastify';
+import Cookie from "js-cookie"
+
 
 const Login = () => {
 
@@ -11,8 +13,6 @@ const Login = () => {
 
     const [error, setError] = useState(null);
     const [passwordType, setPasswordType] = useState("password")
-
-
 
 
     const login = async (event) => {
@@ -33,34 +33,18 @@ const Login = () => {
         const loginInfo = {
             email, password
         }
-        await axios.post("https://stock-pulse.onrender.com/auth/login", loginInfo).then((res) => {
 
-            console.log("Response : ", res.data)
-
+        await axios.post("http://localhost:4000/auth/login", loginInfo).then((res) => {
             localStorage.setItem("user", JSON.stringify(res.data.user))
             toast.success("Account Successfully Logged In")
+
+            Cookie.set("token", res.data.token, { path: "/" })
+            // console.log(cookies)
             window.location.reload();
         }).catch((err) => {
             console.log("Error", err)
             toast.error(err.response.data.message)
         })
-
-        await axios.interceptors.push({
-            request: (config) => {
-                const userId = getCookie('userId');
-                if (userId) {
-                    config.headers['X-User-ID'] = userId;
-                }
-                return config;
-            },
-        });
-
-        function getCookie(name) {
-            const value = `; ${document.cookie}`;
-            const parts = value.split(`; ${name}=`);
-            if (parts.length !== 2) return null;
-            return parts.pop().split(';').shift();
-        }
     }
 
     return (

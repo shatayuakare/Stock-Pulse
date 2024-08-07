@@ -7,6 +7,7 @@ import mongoose from "mongoose";
 import cors from 'cors'
 import cookieParser from "cookie-parser";
 import { isLoggedIn } from "./controller/user.controller.js";
+import contactRoute from "./routes/contact.route.js";
 
 
 // Application Server setup
@@ -25,11 +26,13 @@ const database = process.env.MONGODBURI;
 
 // Applicatino Routes
 server.get("/", (req, res) => {
+
     res.send("Hello Dosto");
+
 })
 
 // Database connection
-server.listen(4000, () => {
+server.listen(port, () => {
     console.log(`server working on ${port} port`)
     mongoose.connect(database).then(() =>
         console.log("Database Connecting Successfully.")
@@ -40,4 +43,5 @@ server.listen(4000, () => {
 // Application middleware Routes
 server.use("/products", productRoute)
 server.use("/auth", userRoute)
+server.use("/contact", contactRoute)
 server.use("/suppliers", isLoggedIn, supplierRoute)
