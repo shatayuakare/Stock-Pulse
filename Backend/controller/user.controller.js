@@ -72,8 +72,6 @@ export const isLoggedIn = async (req, res, next) => {
         const user = await Users.findOne({ email: decode.email }).select("-password")
 
         req.user = user
-        // res.status(200).json(token)
-        // res.status(200).json(user)
         next()
     } catch (error) {
         res.status(404).json(error.message)
@@ -81,18 +79,36 @@ export const isLoggedIn = async (req, res, next) => {
 }
 
 
-export const changePassword = async (req, res) => {
-    const { email, newPassword } = req.body;
+export const updateInfo = async (req, res) => {
+    const { email, phone, name } = req.body;
+
     try {
 
-        const hash = await bcrypt.hash(newPassword, 10);
-        await Users.findOneAndUpdate({ email }, { password: hash })
+        // const user = await Users.findOne()
+        const user = await Users.findOneAndUpdate({ email }, { phone, name }).select("-password");
 
+        res.status(200).json({ message: "User Information Update Successfully", user })
+    } catch (error) {
+        res.status(400).json(error.message)
+    }
+}
+
+export const changePassword = async (req, res) => {
+    const { email, oldPassword, newPassword } = req.body;
+    try {
+        const user = await Users.findOne({ email });
+        if (!user) return res.status(403).json({ message: "Unauthorized access" })
+
+        const auth = await bcrypt.compare(oldPassword, user.password)
+        if (!auth) return res.status(403).json({ message: "Password Incorrect" })
+
+        const hash = await bcrypt.hash(newPassword, 10);
+
+        await Users.findOneAndUpdate({ email }, { password: hash })
         res.status(200).json({
-            message: "Password Changed",
+            message: "Password Change",
             newPassword
         })
-
     } catch (error) {
         res.status(404).json(error.message)
     }

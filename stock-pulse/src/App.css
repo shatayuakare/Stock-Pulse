@@ -5,7 +5,7 @@
   padding: 0;
   box-sizing: border-box;
   text-decoration: none;
-  transition: .5s ease;
+  transition: .5s ease-in-out;
 }
 
 html {
@@ -30,19 +30,46 @@ section {
 
 /* Dashboard styling */
 section#dashboard {
-
   padding-top: 4rem;
-  height: 90dvh !important;
+  /* height: 90dvh !important; */
+}
+
+section#dashboard .content {
+  min-height: 96vh;
 }
 
 section#dashboard .menu li {
-  padding: .3rem;
+  overflow: hidden;
   font-size: 1.2rem;
+  transition: .1s !important;
+  border-radius: 8px 0 0 8px !important;
 }
 
+section#dashboard .menu li.active {
+  color: orange;
+  background-color: #f4f4f5;
+  font-weight: bolder;
+}
+
+section#dashboard .menu li a {
+  background: none;
+  border-radius: none;
+  padding: .8rem !important;
+}
+
+section#dashboard .menu li.active a {
+  color: orange;
+}
+
+section#dashboard .menu li:hover {
+  color: orange;
+  background-color: #f4f4f5c3;
+  font-weight: bolder;
+}
 
 /* common styling */
 
 .h-vh {
+  /* height: 100vh; */
   min-height: 100vh !important;
 }

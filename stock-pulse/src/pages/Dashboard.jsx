@@ -1,48 +1,48 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, Outlet } from 'react-router-dom'
 
 const Dashboard = () => {
-    return (
-        <section className='p-0 bg-white' id='dashboard'>
-            <div className='flex gap-6 mx-6 p-4 md:flex-row sm:flex-col'>
-                <div className='xl:w-1/4 my-auto '>
-                    {/* <div className="pt-6 block">
-                        <div className="-mb-10 mx-auto h-24 bg-cover w-24 rounded-full bg-[url('https://pics.craiyon.com/2023-07-15/dc2ec5a571974417a5551420a4fb0587.webp')] border-4 border-white shadow-lg"></div>
 
-                        <div className="h-40 rounded-md bg-cover bg-[url('https://api.hyundaimobisin.com/service/asset/accessory/2558-K3F10IH101_Steering-Wheel-Cover_1_Red-Black_720x400.jpg')]">
+    const [currentTab, setCurrentTab] = useState(1);
+
+    return (
+        <section className="bg-[url('https://img.freepik.com/free-vector/gradient-minimalist-background_23-2149974337.jpg')] bg-cover bg-center p-0 bg-fixed" id='dashboard'>
+
+            <div className='h-full flex md:flex-row sm:flex-col'>
+                <div className='md:w-1/5 sm:w-full bg-transparent'>
+                    <div className='text-center select-none pt-8'>
+                        <div className="mask mask-squircle w-40 h-40 mx-auto">
+                            <img src="https://pics.craiyon.com/2023-07-15/dc2ec5a571974417a5551420a4fb0587.webp" alt="" />
                         </div>
+                        <h4 className=' my-2 text-black'>
+                            Hello, <span className="text-white text-xl font-bold">Shatayu!</span>
+                        </h4>
                     </div>
 
-                    <div className='text-center'>
-                        <h4 className='text-xl font-bold my-2'>
-                            Shatayu Jtendra Akare
-                        </h4>
-                    </div> */}
-
-                    <ul className="menu rounded-box mx-auto text-zinc-500">
-                        <li>
+                    <ul className="menu rounded-box mx-auto text-blue-50 pe-0 gap-1 p-3">
+                        <li className={`${currentTab === 1 ? 'active' : ''}`} onClick={() => setCurrentTab(1)}>
                             <Link to="">Dashboard</Link>
                         </li>
-                        <li>
+                        <li className={`${currentTab === 2 ? 'active' : ''}`} onClick={() => setCurrentTab(2)}>
                             <Link to="account">Account</Link>
                         </li>
-                        <li>
+                        <li className={`${currentTab === 3 ? 'active' : ''}`} onClick={() => setCurrentTab(3)}>
                             <Link to="edit">Edit</Link>
                         </li>
-                        <li>
+                        <li className={`${currentTab === 4 ? 'active' : ''}`} onClick={() => setCurrentTab(4)}>
                             <Link to="product">Product</Link>
                         </li>
-                        <li>
+                        <li className={`${currentTab === 5 ? 'active' : ''}`} onClick={() => setCurrentTab(5)}>
                             <Link to="setting">Setting</Link>
                         </li>
                     </ul>
                 </div>
-                <div className='w-3/4'>
-                    <div className='p-4 py-6 text-2xl font-bold'>
+                <div className='md:w-4/5 sm:w-full bg-zinc-100 content'>
+                    <div className='md:p-4 sm:p-3 sm:pt-4 sm:pb-0 text-2xl font-bold text-zinc-700'>
                         Dashboard
                     </div>
 
-                    <div className=' p-4 flex rounded-sm'>
+                    <div className='md:p-6 sm:p-3'>
                         <Outlet />
                     </div>
                 </div>

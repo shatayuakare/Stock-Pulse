@@ -2,9 +2,9 @@ import React from 'react'
 
 const Main = () => {
     return (
-        <section className='flex items-end p-0'>
-            <div className="md:w-4/5 grid grid-cols-2 mx-auto">
-                <div className='text-white flex flex-col justify-center pb-8'>
+        <section className='content-center '>
+            <div className="md:w-4/5 grid md:grid-cols-2 mx-auto sm:grid-col-1 sm:gap-2">
+                <div className='text-white order-2 flex flex-col justify-center md:pb-8'>
                     <div className='font-bold text-xl text-zinc-400 p-2 ps-4'>
                         About Us
                         <hr className='w-12 border-2 border-orange-500 rounded-full' />

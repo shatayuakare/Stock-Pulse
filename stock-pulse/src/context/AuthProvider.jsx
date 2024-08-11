@@ -1,14 +1,14 @@
 import { createContext, useContext, useState } from "react"
-import Cookie from "js-cookie";
+// import Cookie from "js-cookie";
 // import jwt from "jsonwebtoken"
 // import * as jose from "jose"
 
 export const AuthContext = createContext();
 
-const JSON_KEY = "nahibataunga"
+// const JSON_KEY = "nahibataunga"
 export default function AuthProvider({ children }) {
 
-    const token = Cookie.get('token');
+    // const token = Cookie.get('token');
     // try {
     //     const initialauthUser = jwt.verify(token, JSON_KEY, ((err, decode) => {
     //         if (err) {

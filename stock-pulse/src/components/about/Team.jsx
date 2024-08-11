@@ -77,14 +77,14 @@ const Team = () => {
             <section className='flex justify-center flex-col bg-white' id='team'>
                 <PageHeading title="expert team" about="meet our leadership" />
 
-                <div className="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 sm:mx-4  md:w-2/3 md:mx-auto p-4">
+                <div className="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 sm:mx-3 md:w-2/3 md:mx-auto p-4">
 
                     {
                         team.map((elem, index) => {
                             return (
                                 <div className="card" key={index}>
                                     <div className='m-0 p-2'>
-                                        <figure className='h-80 w-full rounded-md flex-col'>
+                                        <figure className='md:h-80 w-full rounded-md flex-col'>
                                             <img className='w-full'
                                                 src={elem.img}
                                                 alt={elem.name} />

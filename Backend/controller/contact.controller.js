@@ -20,9 +20,9 @@ export const getContact = async (req, res) => {
 }
 export const addContact = async (req, res) => {
 
-    const { name, email, message } = req.body;
+    const { name, email, subject, message } = req.body;
     try {
-        const createContact = new Contacts({ name, email, message })
+        const createContact = new Contacts({ name, email, subject, message })
 
         createContact.save()
         res.status(201).json({ message: "Application Successfully Send" })
