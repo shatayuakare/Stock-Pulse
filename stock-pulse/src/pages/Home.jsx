@@ -1,6 +1,6 @@
 import React from 'react'
 import Team from "../components/about/Team";
-import Main from '../components/home/Main';
+import Main from '../components/home/Main.js';
 import FAQ from '../components/about/FAQ';
 import Contact from '../components/home/Contact1';
 import Hero from '../components/contact/Hero';
