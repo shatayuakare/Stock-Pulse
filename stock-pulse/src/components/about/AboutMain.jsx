@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Main = () => {
+const AboutMain = () => {
     return (
         <section className='content-center '>
             <div className="md:w-4/5 grid md:grid-cols-2 mx-auto sm:grid-col-1 sm:gap-2">
@@ -31,4 +31,4 @@ const Main = () => {
     )
 }
 
-export default Main
+export default AboutMain

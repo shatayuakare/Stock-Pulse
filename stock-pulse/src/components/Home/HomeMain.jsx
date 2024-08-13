@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from "react-router-dom"
 
 
-const Main = () => {
+const HomeMain = () => {
     return (
         <section className="content-center md:px-24">
             <div className="grid md:grid-cols-2 sm:grid-cols-1 md:p-4 sm:pt-8">
@@ -28,4 +28,4 @@ const Main = () => {
     )
 }
 
-export default Main
+export default HomeMain
